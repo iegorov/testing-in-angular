@@ -1,0 +1,19 @@
+{
+  "name": "testing-in-angular",
+  "version": "1.0.0",
+  "description": "Presentation about testing in Angular",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iegorov/testing-in-angular.git"
+  },
+  "author": "Ivan Egorov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iegorov/testing-in-angular/issues"
+  },
+  "homepage": "https://github.com/iegorov/testing-in-angular#readme",
+  "files": [
+    "index.html",
+    "README.md"
+  ]
+}
