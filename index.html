@@ -24,8 +24,9 @@
         <li class="next">Инструменты Angular для тестирования</li>
         <li class="next">Про BDD</li>
         <li class="next">Основные функции Jasmine</li>
+        <li class="next">Утилиты Angular</li>
         <li class="next">Примеры тестов в реальном приложении</li>
-        <li class="next">Анали покрытия тестами</li>
+        <li class="next">Анализ покрытия тестами</li>
         <li class="next">Впечатления и профит</li>
     </ul>
 </section>
@@ -39,25 +40,25 @@
     <p>
         Это тестирование одного элемента кода (например, отдельная функция или класс в случае ООП-кода) в изоляции от
         остальной части программы.
-    </p>
-    <p>
+        <br>
+        <strong>Паттерн AAA</strong> - каждый тест разбивается на три части: <mark>arrange</mark> (подготовка), <mark>act</mark> (действие) и <mark>assert</mark> (проверка).
+        <br>
         <strong>Стабы</strong> — это заглушки, которые вместо выполнения действия возвращают какие-то данные.
-    </p>
-    <p>
+        <br>
         <strong>Моки</strong> — это заглушки, которые используются, чтобы подменить функциональность.
     </p>
 </section>
 
 
 <section class="slide">
-    <h2>Компонентные (интеграционные) тесты</h2>
+    <h2>Интеграционные</h2>
     <p>
         Тестируют какой-то компонент системы, но не полноценную систему (E2E).
         Например, мы проверяем, что компоненты на вкладке совместно корректно работают.
     </p>
     <ul>
         <li>Изолированы от внешней среды моками (стабами)</li>
-        <li>Быстрые и надёжные</li>
+        <li>Стабильные и достаточно быстрые</li>
         <li>Проверяют один экран (компонент) в разных комбинациях. Помогают при рефакторинге</li>
     </ul>
 </section>
@@ -76,6 +77,74 @@
     <div class="next">
         <strong>Protractor (не поддерживается)</strong> - фреймворк для E2E тестов
     </div>
+</section>
+
+<section class="slide">
+    <h2>BDD (Behaviour Driven Development — Разработка через поведение)</h2>
+    Исторически BDD является продолжением TDD методологии.
+    <br>
+    Использует концепцию <strong>DSL</strong> ( Domain-Specific Language - специфичный предметно-ориентированный язык) -
+    язык,
+    понятный всем участникам процесса и позволяющего объединить постановку задачи, тесты и документацию воедино.
+</section>
+
+<section class="slide">
+    <h2>Преимущества BDD</h2>
+    Улучшает коммуникацию между командой разработки и бизнесом.
+    <br>
+    <ul>
+        <li>ПО и аналитик пишут подробные требования в виде user stories.</li>
+        <li>На основе этих требований формируются тест-кейсы, которые описывают желаемое поведение</li>
+        <li>Разработчик реализует тесты и консультируется с тестировщиком, чтобы не уходить слишком далеко в логику</li>
+    </ul>
+    Т.о. разработчик понимает, что он реализует то, что нужно.
+</section>
+
+<section class="slide">
+    <pre><code>
+    <mark>describe</mark>("Узнать как дела", function() {
+        <mark>beforeEach</mark>(() => {  let isFine; });
+
+        <mark>it</mark>("всё отлично", function() {
+            isFine = true;
+            <mark>expect</mark>(isFine).toBe(true);
+        });
+    });
+    </code></pre>
+</section>
+
+<section class="slide">
+    <h2>Jasmine. Базовая структура теста</h2>
+    <strong>describe</strong> обозначает набор, логически связанных друг с другом тестов.
+    Наборы могут быть вложенными.
+    <br>
+    <strong>beforeEach()</strong> используется для задания исходного состояния и вызывается перед каждой функцией it()
+    <br>
+    <strong>it</strong> определяет тест-кейс внутри любого набора
+    <br>
+    <strong>expect</strong> определяет ожидания, которые проверяются в тесте
+</section>
+
+<section class="slide">
+    <h2><a href="https://jasmine.github.io/api/5.1/matchers.html" target="_blank">Matchers</a></h2>
+    <strong>toBe(expected)</strong> - строгое сравнение <code>===</code>, хорошо подходит для примитивов
+    <br>
+    <strong>toEqual(expected)</strong> - глубокое сравнение, хорошо подходит для сложных типов (массивы, объекты)
+    <br>
+    <strong>toBeDefined()</strong> - что, не <code>undefined</code>
+    <br>
+    <strong>toBeFalse()</strong> - что, <code>false</code>
+    <br>
+    <strong>toBeTruthy()</strong> - что, <code>true</code>
+</section>
+
+<section class="slide">
+    <h2>Подмена зависимостей. <a href="https://jasmine.github.io/api/5.1/Spy.html" target="_blank">Jasmine Spy.</a></h2>
+    <strong>jasmine.createSpyObj</strong> — позволяет создать новый объект класса с набором уже отслеживаемых методов
+    <br>
+    метод <strong>returnValue</strong> позволяет подменить возвращаемое значение
+    <br>
+    метод <strong>callFake()</strong> позволяет подменить вызов оригинальной функции
 </section>
 
 <footer class="badge">
