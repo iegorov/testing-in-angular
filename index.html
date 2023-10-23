@@ -1,117 +1,119 @@
 <!doctype html>
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Testing Angular applications</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
-    <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
-    </style>
+  <title>Testing Angular applications</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
 </head>
 <body class="shower list">
 
 <header class="caption">
-    <h1>Коротко про тестирование Angular приложений</h1>
+  <h1>Коротко про тестирование Angular приложений</h1>
 </header>
 
 <section class="slide">
-    <h2>План:</h2>
-    <ul>
-        <li>Уровни тестирования</li>
-        <li class="next">Инструменты Angular для тестирования</li>
-        <li class="next">Про BDD</li>
-        <li class="next">Основные функции Jasmine</li>
-        <li class="next">Утилиты Angular</li>
-        <li class="next">Примеры тестов в реальном приложении</li>
-        <li class="next">Анализ покрытия тестами</li>
-    </ul>
+  <h2>План:</h2>
+  <ul>
+    <li>Уровни тестирования</li>
+    <li class="next">Инструменты Angular для тестирования</li>
+    <li class="next">Про BDD</li>
+    <li class="next">Основные функции Jasmine</li>
+    <li class="next">Утилиты Angular</li>
+    <li class="next">Примеры тестов в реальном приложении</li>
+    <li class="next">Анализ покрытия тестами</li>
+  </ul>
 </section>
 
 <section class="slide">
-    <img class="cover" src="img/pyramid.jpg" alt="Testing pyramid">
+  <img class="cover" src="img/pyramid.jpg" alt="Testing pyramid">
 </section>
 
 <section class="slide">
-    <h2>Юнит-тесты</h2>
-    <p>
-        Это тестирование одного элемента кода (например, отдельная функция или класс в случае ООП-кода) в изоляции от
-        остальной части программы.
+  <h2>Юнит-тесты</h2>
+  <p>
+    Это тестирование одного элемента кода (например, отдельная функция или класс в случае ООП-кода) в изоляции от
+    остальной части программы.
 
-    </p>
-    <p>
-        <strong>Паттерн AAA</strong> - каждый тест разбивается на три части:
-        <mark>arrange</mark>
-        (подготовка),
-        <mark>act</mark>
-        (действие) и
-        <mark>assert</mark>
-        (проверка).
-        <br>
-        <strong>Фикстуры</strong> - данные, которые нужны во время запуска тестов
-    </p>
-</section>
-
-<section class="slide">
-    <h2>Заглушки</h2>
-    <strong>Стаб</strong> - заменяет реальный объект или функцию, позволяя избежать выполнения побочных эффектов и сделать код детерминированным. Например, подмена http запроса.
+  </p>
+  <p>
+    <strong>Паттерн AAA</strong> - каждый тест разбивается на три части:
+    <mark>arrange</mark>
+    (подготовка),
+    <mark>act</mark>
+    (действие) и
+    <mark>assert</mark>
+    (проверка).
     <br>
-    <strong>Мок</strong> - заглушка, которая содержит ожидания о том, что какой-то код выполнился определенным образом. Например, с какими параметрами она будет вызвана.
-    <br>
-    Чисто технически мок и стаб создаются одинаково, за исключением того, что на мок вешают ожидания, проверяющие вызовы.
+    <strong>Фикстуры</strong> - данные, которые нужны во время запуска тестов
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Заглушки</h2>
+  <strong>Стаб</strong> - заменяет реальный объект или функцию, позволяя избежать выполнения побочных эффектов и сделать
+  код детерминированным. Например, подмена http запроса.
+  <br>
+  <strong>Мок</strong> - заглушка, которая содержит ожидания о том, что какой-то код выполнился определенным образом.
+  Например, с какими параметрами она будет вызвана.
+  <br>
+  Чисто технически мок и стаб создаются одинаково, за исключением того, что на мок вешают ожидания, проверяющие вызовы.
 </section>
 
 
 <section class="slide">
-    <h2>Интеграционные</h2>
-    <p>
-        Тестируют какой-то компонент системы, но не полноценную систему (E2E).
-        Например, мы проверяем, что компоненты на вкладке совместно корректно работают.
-    </p>
-    <ul>
-        <li>Изолированы от внешней среды моками (стабами)</li>
-        <li>Стабильные и достаточно быстрые</li>
-        <li>Проверяют один экран (компонент) в разных комбинациях. Помогают при рефакторинге</li>
-    </ul>
+  <h2>Интеграционные</h2>
+  <p>
+    Тестируют какой-то компонент системы, но не полноценную систему (E2E).
+    Например, мы проверяем, что компоненты на вкладке совместно корректно работают.
+  </p>
+  <ul>
+    <li>Изолированы от внешней среды моками (стабами)</li>
+    <li>Стабильные и достаточно быстрые</li>
+    <li>Проверяют один экран (компонент) в разных комбинациях. Помогают при рефакторинге</li>
+  </ul>
 </section>
 
 <section class="slide">
-    <h2>Что есть в Angular для тестирования</h2>
-    <div>
-        <strong>Karma - запускает тесты в реальном браузере</strong>
-        <p>Умеет следить за изменениями исходного кода и отображать процент покрытия кода тестами. Настраивается с
-            помощью <strong>karma.conf</strong>.</p>
-    </div>
-    <div class="next">
-        <strong>Jasmin</strong> - фреймворк для тестирования JS c уклоном в BDD
-        <p>Позволяет писать юнит и интеграционные тесты.</p>
-    </div>
-    <div class="next">
-        <strong>Protractor (не поддерживается)</strong> - фреймворк для E2E тестов
-    </div>
+  <h2>Что есть в Angular для тестирования</h2>
+  <div>
+    <strong>Karma - запускает тесты в реальном браузере</strong>
+    <p>Умеет следить за изменениями исходного кода и отображать процент покрытия кода тестами. Настраивается с
+      помощью <strong>karma.conf</strong>.</p>
+  </div>
+  <div class="next">
+    <strong>Jasmin</strong> - фреймворк для тестирования JS c уклоном в BDD
+    <p>Позволяет писать юнит и интеграционные тесты.</p>
+  </div>
+  <div class="next">
+    <strong>Protractor (не поддерживается)</strong> - фреймворк для E2E тестов
+  </div>
 </section>
 
 <section class="slide">
-    <h2>BDD (Behaviour Driven Development — Разработка через поведение)</h2>
-    Исторически BDD является продолжением TDD методологии.
-    <br>
-    Использует концепцию <strong>DSL</strong> ( Domain-Specific Language - специфичный предметно-ориентированный язык) -
-    язык,
-    понятный всем участникам процесса и позволяющего объединить постановку задачи, тесты и документацию воедино.
+  <h2>BDD (Behaviour Driven Development — Разработка через поведение)</h2>
+  Исторически BDD является продолжением TDD методологии.
+  <br>
+  Использует концепцию <strong>DSL</strong> ( Domain-Specific Language - специфичный предметно-ориентированный язык) -
+  язык,
+  понятный всем участникам процесса и позволяющего объединить постановку задачи, тесты и документацию воедино.
 </section>
 
 <section class="slide">
-    <h2>Преимущества BDD</h2>
-    Улучшает коммуникацию между командой разработки и бизнесом.
-    <br>
-    <ul>
-        <li>ПО и аналитик пишут подробные требования в виде user stories.</li>
-        <li>На основе этих требований формируются тест-кейсы, которые описывают желаемое поведение</li>
-        <li>Разработчик реализует тесты и консультируется с тестировщиком, чтобы не уходить слишком далеко в логику</li>
-    </ul>
-    Т.о. разработчик понимает, что он реализует то, что нужно.
+  <h2>Преимущества BDD</h2>
+  Улучшает коммуникацию между командой разработки и бизнесом.
+  <br>
+  <ul>
+    <li>ПО и аналитик пишут подробные требования в виде user stories.</li>
+    <li>На основе этих требований формируются тест-кейсы, которые описывают желаемое поведение</li>
+    <li>Разработчик реализует тесты и консультируется с тестировщиком, чтобы не уходить слишком далеко в логику</li>
+  </ul>
+  Т.о. разработчик понимает, что он реализует то, что нужно.
 </section>
 
 <section class="slide">
@@ -128,41 +130,41 @@
 </section>
 
 <section class="slide">
-    <h2>Jasmine. Базовая структура теста</h2>
-    <strong>describe</strong> обозначает набор, логически связанных друг с другом тестов.
-    Наборы могут быть вложенными.
-    <br>
-    <strong>beforeEach()</strong> используется для задания исходного состояния и вызывается перед каждой функцией it()
-    <br>
-    <strong>it</strong> определяет тест-кейс внутри любого набора
-    <br>
-    <strong>expect</strong> определяет ожидания, которые проверяются в тесте
+  <h2>Jasmine. Базовая структура теста</h2>
+  <strong>describe</strong> обозначает набор, логически связанных друг с другом тестов.
+  Наборы могут быть вложенными.
+  <br>
+  <strong>beforeEach()</strong> используется для задания исходного состояния и вызывается перед каждой функцией it()
+  <br>
+  <strong>it</strong> определяет тест-кейс внутри любого набора
+  <br>
+  <strong>expect</strong> определяет ожидания, которые проверяются в тесте
 </section>
 
 <section class="slide">
-    <h2><a href="https://jasmine.github.io/api/5.1/matchers.html" target="_blank">Matchers</a></h2>
-    <strong>toBe(expected)</strong> - строгое сравнение <code>===</code>, хорошо подходит для примитивов
-    <br>
-    <strong>toEqual(expected)</strong> - глубокое сравнение, хорошо подходит для сложных типов (массивы, объекты)
-    <br>
-    <strong>toBeDefined()</strong> - что, не <code>undefined</code>
-    <br>
-    <strong>toBeFalse()</strong> - что, <code>false</code>
-    <br>
-    <strong>toBeTruthy()</strong> - что, <code>true</code>
+  <h2><a href="https://jasmine.github.io/api/5.1/matchers.html" target="_blank">Matchers</a></h2>
+  <strong>toBe(expected)</strong> - строгое сравнение <code>===</code>, хорошо подходит для примитивов
+  <br>
+  <strong>toEqual(expected)</strong> - глубокое сравнение, хорошо подходит для сложных типов (массивы, объекты)
+  <br>
+  <strong>toBeDefined()</strong> - что, не <code>undefined</code>
+  <br>
+  <strong>toBeFalse()</strong> - что, <code>false</code>
+  <br>
+  <strong>toBeTruthy()</strong> - что, <code>true</code>
 </section>
 
 <section class="slide">
-    <h2>Подмена зависимостей. <a href="https://jasmine.github.io/api/5.1/Spy.html" target="_blank">Jasmine Spy.</a></h2>
-    <strong>jasmine.createSpyObj</strong> — позволяет создать новый объект класса с набором уже отслеживаемых методов
-    <br>
-    метод <strong>returnValue</strong> позволяет подменить возвращаемое значение
-    <br>
-    метод <strong>callFake()</strong> позволяет подменить вызов оригинальной функции
+  <h2>Подмена зависимостей. <a href="https://jasmine.github.io/api/5.1/Spy.html" target="_blank">Jasmine Spy.</a></h2>
+  <strong>jasmine.createSpyObj</strong> — позволяет создать новый объект класса с набором уже отслеживаемых методов
+  <br>
+  метод <strong>returnValue</strong> позволяет подменить возвращаемое значение
+  <br>
+  метод <strong>callFake()</strong> позволяет подменить вызов оригинальной функции
 </section>
 
 <footer class="badge">
-    <a href="https://github.com/iegorov/testing-in-angular.git">Fork me on GitHub</a>
+  <a href="https://github.com/iegorov/testing-in-angular.git">Fork me on GitHub</a>
 </footer>
 
 <div class="progress"></div>
