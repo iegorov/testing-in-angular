@@ -69,14 +69,24 @@
 <section class="slide">
   <h2>Интеграционные</h2>
   <p>
-    Тестируют какой-то компонент системы, но не полноценную систему (E2E).
-    Например, мы проверяем, что компоненты на вкладке совместно корректно работают.
+    Тестируем интеграцию нескольких компонентов внутри какого-то одного компонента, но не полноценную систему в отличие
+    от E2E
   </p>
   <ul>
     <li>Изолированы от внешней среды моками (стабами)</li>
     <li>Стабильные и достаточно быстрые</li>
     <li>Проверяют один экран (компонент) в разных комбинациях. Помогают при рефакторинге</li>
   </ul>
+</section>
+
+<section class="slide">
+  <h2>E2E - End-to-end</h2>
+  <p>
+    Это проверка приложения полностью, от начала до конца, вместе со всеми зависимостями.
+    <br>
+    Для такого тестирования создается тестовое окружение (среда), идентичное окружению, в котором работают реальные
+    пользователи. Тестируются все действия, которые пользователи могут выполнять в приложении.
+  </p>
 </section>
 
 <section class="slide">
@@ -93,6 +103,28 @@
   <div class="next">
     <strong>Protractor (не поддерживается)</strong> - фреймворк для E2E тестов
   </div>
+</section>
+
+<section class="slide">
+  <h2>Headless Chrome</h2>
+  <ol>
+    <li>
+      нет реальной отрисовки содержимого, он все отрисовывает в памяти
+    </li>
+    <li>
+      работает быстрее
+    </li>
+    <li>
+      имеет программный интерфейс для управления
+    </li>
+    <li>
+      легко поставить на Linux-сервер
+    </li>
+  </ol>
+  Для правильной работы в контейнерах docker ставим флаги
+  <code>--disable-gpu</code> и
+  <code>--no-sandbox</code>.
+  Флаг <code>--remote-debugging-port=9222</code> позволяет открыть DevTools по http://localhost:9222/
 </section>
 
 <section class="slide">
@@ -160,7 +192,54 @@
   <br>
   метод <strong>returnValue</strong> позволяет подменить возвращаемое значение
   <br>
-  метод <strong>callFake()</strong> позволяет подменить вызов оригинальной функции
+  метод <strong>callFake</strong> позволяет подменить вызов оригинальной функции
+</section>
+
+<section class="slide">
+  <h2>Утилита TestBed</h2>
+  метод <strong>configureTestingModule</strong> — позволяет указать модуль для тестового окружения. В этом модуле мы
+  определяем всё, что нам необходимо для тестирования конкретной сущности.
+  <br>
+  метод <strong>inject</strong> позволяет получить экземпляр сервиса
+  <br>
+  метод <strong>createComponent</strong> создает экземпляр компонента.
+  Возвращает <strong>ComponentFixture</strong> - обёртку над переданным компонентом с набором полезных утилит для тестирования.
+</section>
+
+<!-- TODO: доработать-->
+<section class="slide">
+  <h2>ComponentFixture</h2>
+  componentInstance
+  <br>
+  debugElement
+  <br>
+  detectChanges()
+</section>
+
+<!-- TODO: доработать-->
+<section class="slide">
+  <h2>Утилиты для тестирования асинхронного кода</h2>
+  fakeAsync
+  <br>
+  tick
+  <br>
+  flush
+</section>
+
+<section class="slide">
+  <h2>Анализ покрытия</h2>
+  <p>
+    <strong>package.json</strong>
+    <br>
+    <code>"test-coverage": "ng test --watch --code-coverage"</code>
+  </p>
+  <strong>karma.conf.js</strong>
+  <br>
+  <ul>
+    <li>karma-coverage-istanbul-reporter секция <strong>coverageIstanbulReporter</strong></li>
+    <li>karma-coverage секция <strong>coverageReporter</strong></li>
+    <li>karma-sabarivka-reporter - работает поверх karma-coverage</li>
+  </ul>
 </section>
 
 <footer class="badge">
