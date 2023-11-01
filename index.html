@@ -20,13 +20,14 @@
 <section class="slide">
   <h2>План:</h2>
   <ul>
-    <li>Уровни тестирования</li>
+    <li>Теория тестирования</li>
     <li class="next">Инструменты Angular для тестирования</li>
     <li class="next">Про BDD</li>
     <li class="next">Основные функции Jasmine</li>
     <li class="next">Утилиты Angular</li>
     <li class="next">Примеры тестов в реальном приложении</li>
     <li class="next">Анализ покрытия тестами</li>
+    <li class="next">Вопросы</li>
   </ul>
 </section>
 
@@ -97,7 +98,7 @@
       помощью <strong>karma.conf</strong>.</p>
   </div>
   <div class="next">
-    <strong>Jasmin</strong> - фреймворк для тестирования JS c уклоном в BDD
+    <a href="https://jasmine.github.io/" target="_blank"><strong>Jasmine</strong></a> - фреймворк для тестирования JS c уклоном в BDD
     <p>Позволяет писать юнит и интеграционные тесты.</p>
   </div>
   <div class="next">
@@ -166,7 +167,7 @@
   <strong>describe</strong> обозначает набор, логически связанных друг с другом тестов.
   Наборы могут быть вложенными.
   <br>
-  <strong>beforeEach()</strong> используется для задания исходного состояния и вызывается перед каждой функцией it()
+  <strong>beforeEach</strong> используется для задания исходного состояния и вызывается перед каждой функцией it()
   <br>
   <strong>it</strong> определяет тест-кейс внутри любого набора
   <br>
@@ -239,6 +240,22 @@
     <li>karma-coverage-istanbul-reporter секция <strong>coverageIstanbulReporter</strong></li>
     <li>karma-coverage секция <strong>coverageReporter</strong></li>
     <li>karma-sabarivka-reporter - работает поверх karma-coverage</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2><a href="https://github.com/help-me-mom/ng-mocks" target="_blank">Spectator</a> и <a href="https://github.com/help-me-mom/ng-mocks" target="_blank">ng-mock</a></h2>
+  Сложности:
+  <ul>
+    <li>у TestBed громоздкая конфигурация и сложная апи</li>
+    <li>захламление файла с тестами декларациями моков</li>
+    <li>много ручной работы при работе с debugElement</li>
+  </ul>
+
+  Ресурсы:
+  <ul>
+    <li><a href="https://www.angular.love/en/2020/04/07/spectator-when-testing-becomes-a-pleasure/" target="_blank">Spectator – when testing becomes a pleasure</a></li>
+    <li><a href="https://dev.to/cjcoops/how-to-write-simple-angular-integration-tests-with-spectator-1i1b" target="_blank">How To Write Simple Angular Integration Tests With Spectator</a></li>
   </ul>
 </section>
 
