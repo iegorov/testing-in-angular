@@ -25,9 +25,7 @@
     <li class="next">Про BDD</li>
     <li class="next">Основные функции Jasmine</li>
     <li class="next">Утилиты Angular</li>
-    <li class="next">Примеры тестов в реальном приложении</li>
     <li class="next">Анализ покрытия тестами</li>
-    <li class="next">Вопросы</li>
   </ul>
 </section>
 
@@ -207,40 +205,22 @@
   Возвращает <strong>ComponentFixture</strong> - обёртку над переданным компонентом с набором полезных утилит для тестирования.
 </section>
 
-<!-- TODO: доработать-->
 <section class="slide">
   <h2>ComponentFixture</h2>
-  componentInstance
+  свойство <strong>componentInstance</strong> - экземпляр класса компонента
   <br>
-  debugElement
+  свойство <strong>debugElement</strong> - безопасный доступ к DOM-дереву элемента
   <br>
-  detectChanges()
+  метод <strong>detectChanges()</strong> - позволяет запустить цикл обнаружения изменений
 </section>
 
-<!-- TODO: доработать-->
 <section class="slide">
   <h2>Утилиты для тестирования асинхронного кода</h2>
-  fakeAsync
+  <strong>fakeAsync</strong> - специальная зона, которая позволяет тестировать асинхронный код как синхронный
   <br>
-  tick
+  <strong>tick</strong>  - позволяет имитировать асинхронное течение времени с помощью виртуальных часов
   <br>
-  flush
-</section>
-
-<section class="slide">
-  <h2>Анализ покрытия</h2>
-  <p>
-    <strong>package.json</strong>
-    <br>
-    <code>"test-coverage": "ng test --watch --code-coverage"</code>
-  </p>
-  <strong>karma.conf.js</strong>
-  <br>
-  <ul>
-    <li>karma-coverage-istanbul-reporter секция <strong>coverageIstanbulReporter</strong></li>
-    <li>karma-coverage секция <strong>coverageReporter</strong></li>
-    <li>karma-sabarivka-reporter - работает поверх karma-coverage</li>
-  </ul>
+  <strong>flush</strong> - очищает очередь макрозадач
 </section>
 
 <section class="slide">
@@ -256,6 +236,22 @@
   <ul>
     <li><a href="https://www.angular.love/en/2020/04/07/spectator-when-testing-becomes-a-pleasure/" target="_blank">Spectator – when testing becomes a pleasure</a></li>
     <li><a href="https://dev.to/cjcoops/how-to-write-simple-angular-integration-tests-with-spectator-1i1b" target="_blank">How To Write Simple Angular Integration Tests With Spectator</a></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Анализ покрытия</h2>
+  <p>
+    <strong>package.json</strong>
+    <br>
+    <code>"test-coverage": "ng test --watch --code-coverage"</code>
+  </p>
+  <strong>karma.conf.js</strong>
+  <br>
+  <ul>
+    <li>karma-coverage-istanbul-reporter секция <strong>coverageIstanbulReporter</strong></li>
+    <li>karma-coverage секция <strong>coverageReporter</strong></li>
+    <li>karma-sabarivka-reporter - работает поверх karma-coverage</li>
   </ul>
 </section>
 
